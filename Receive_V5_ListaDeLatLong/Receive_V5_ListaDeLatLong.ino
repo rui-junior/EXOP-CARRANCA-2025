@@ -20,10 +20,9 @@ float longitude;
 
 bool dadosRecebidos = false;
 
-// Substitua a sua função handleRoot por esta
-// No código da sua placa RECEPTORA (Lilygo T-Display com Wi-Fi)
 
-// Substitua a sua função handleRoot por esta versão corrigida
+
+
 void handleRoot() {
   String html = R"rawliteral(
 <!DOCTYPE html>
@@ -115,7 +114,8 @@ void handleRoot() {
 }
 
 
-// Substitua a sua função handleJSON por esta
+
+
 void handleJSON() {
   File file = SD.open("/coordenadas.csv", FILE_READ);
   String json = "{\"recebido\": " + String(dadosRecebidos ? "true" : "false") + ", \"coordenadas\": [";
@@ -157,6 +157,9 @@ void handleJSON() {
 }
 
 
+
+
+
 void setup() {
   initBoard();
   // When the power is turned on, a delay is required.
@@ -188,6 +191,9 @@ void setup() {
   server.begin();
   Serial.println("Servidor HTTP iniciado.");
 }
+
+
+
 
 void loop() {
   int packetSize = LoRa.parsePacket();
